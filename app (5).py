@@ -401,7 +401,7 @@ def build_freq_df(tokens: list) -> pd.DataFrame:
     rows = [{"คำ": w, "จำนวนครั้ง": c, "สัดส่วน (%)": round(c/total*100, 2)}
             for w, c in counter.most_common()]
     df = pd.DataFrame(rows)
-    df.index = range(1, len(df)+1); df.index.name = "อันดับ"
+    df.index = range(1, len(df)+1); df.index.name = "Ranking"
     return df
 
 # ============================================================
@@ -507,7 +507,6 @@ def render_context_panel(word, ctx_list, freq, pct) -> str:
 def show_trans_panel(result: dict, engine_key: str):
     """
     แสดงผลแปลด้วย Streamlit native components ทั้งหมด
-    — ไม่ใช้ unsafe_allow_html เลย → ไม่มีปัญหา HTML escape
     """
     engine_names = {"google": "Google Translate", "mymemory": "MyMemory"}
     engine_name  = engine_names.get(engine_key, engine_key)
