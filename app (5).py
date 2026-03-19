@@ -771,7 +771,7 @@ if uploaded:
                            file_name=f"{base}_top{top_n}.csv", mime="text/csv",
                            use_container_width=True)
     with dc3:
-        st.caption("คอลัมน์: อันดับ · คำ · จำนวนครั้ง · สัดส่วน (%)  \nEncoding: UTF-8 BOM — เปิดใน Excel ได้ทันที")
+        st.caption("คอลัมน์: Ranking · คำ · จำนวนครั้ง · สัดส่วน (%)  \nEncoding: UTF-8 BOM — เปิดใน Excel ได้ทันที")
 
     # Preview
     st.markdown('<p class="sec-label">07 — ข้อความต้นฉบับ</p>', unsafe_allow_html=True)
@@ -795,7 +795,7 @@ else:
     td = sum(dc_counts)
     ddf = pd.DataFrame({"คำ":dw,"จำนวนครั้ง":dc_counts,
                          "สัดส่วน (%)":[round(c/td*100,2) for c in dc_counts]})
-    ddf.index = range(1,len(ddf)+1); ddf.index.name="อันดับ"
+    ddf.index = range(1,len(ddf)+1); ddf.index.name="Ranking"
     dd1, dd2 = st.columns([1.15,1], gap="large")
     with dd1:
         fig_d = build_chart(ddf, palette)
